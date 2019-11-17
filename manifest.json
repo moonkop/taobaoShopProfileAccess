@@ -1,0 +1,26 @@
+{
+	"name": "解析淘口令的软件",
+	"version": "1.0.0",
+	"description": "淘宝店铺页面查看工具",
+	"permissions": [
+		"https://*/*",
+		"webRequest"
+	],
+	"manifest_version":2,
+	"browser_action": {
+		"default_title": "淘宝店铺页面查看工具",
+		"default_popup": "popup.html"
+	},
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [
+		{
+			"matches": [
+				"https://rate.taobao.com/*"
+			],
+			"js": [
+				"content.js"
+			],
+			"run_at": "document_start"
+		}
+    ]
+}
